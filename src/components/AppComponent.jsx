@@ -1,3 +1,7 @@
-// Main container for application
-// Manage state for GIFs and handle API requests to fetch them
-// Renders SearchFeils and list from giftCard
+// Manages fetched GIFs
+import React, { useState } from "react";
+import GifCard from "./GifCard";
+
+const AppComponent = () => {
+    const [gifs, setGifs] = useState([]);
+}

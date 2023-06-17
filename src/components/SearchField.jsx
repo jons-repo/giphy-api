@@ -30,6 +30,7 @@ const SearchField = () => {
                 setGifs(fetchedGifs.data);
             }
         } catch(error) {console.log(error)};
+        console.log(gifs);
     }
 
     return (

@@ -14,8 +14,8 @@ const AppComponent = () => {
 
     return (
         <div>
-            <h2>Results:</h2>
             <SearchField updateGifs={updateGifs} />
+            <h2>Results:</h2>
             {gifs.map(gif => <GifCard key={gif.id} images={gif.images} />)}
         </div>
     );

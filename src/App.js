@@ -1,9 +1,11 @@
 import './App.css';
-import SearchField from './components/SearchField';
+import AppComponent from './components/AppComponent';
 
 function App() {
   return (
-    <SearchField />
+    <div>
+      <AppComponent/> 
+    </div>
   );
 }
 

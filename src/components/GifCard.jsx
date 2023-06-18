@@ -4,11 +4,12 @@ import React from "react";
 import SearchField from "./SearchField";
 
 const GifCard = (props) => {
-    const gif = props.gif
+    
+    const gif = props.images.original.url
 
     return (
         <div>
-            <img src={gif.url} />
+            <img src={gif} />
         </div>
     )
 };

@@ -4,10 +4,10 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-const SearchField = () => {
+const SearchField = ({ updateGifs }) => {
     const [searchName, setSearchName] = useState("");
     const [searchFilter, setSearchFilter] = useState("regular");
-    const [gifs, setGifs] = useState("");
+    const [gifs, setGifs] = useState([]);
 
     // Updates the search name with event from input tag
     const handleInputChange = (event) => {
@@ -23,11 +23,13 @@ const SearchField = () => {
             // Getting different API links based on filter user selcted
             if (searchFilter == "regular") {
                 let fetchedGifs = await axios.get(`http://api.giphy.com/v1/gifs/search?q=${searchName}&api_key=GWNHM0RflUo45K45RKCCfjSTh8WxWzMT`);
-                setGifs(fetchedGifs.data);
+                setGifs(fetchedGifs.data.data);
+                updateGifs(fetchedGifs.data.data);
             }
             else {
                 let fetchedGifs = await axios.get(`http://api.giphy.com/v1/gifs/${searchFilter}?api_key=GWNHM0RflUo45K45RKCCfjSTh8WxWzMT`);
-                setGifs(fetchedGifs.data);
+                setGifs(fetchedGifs.data.data);
+                updateGifs(fetchedGifs.data.data);
             }
         } catch(error) {console.log(error)};
         console.log(gifs);

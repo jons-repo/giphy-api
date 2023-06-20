@@ -45,14 +45,20 @@ const SearchField = ({ updateGifs }) => {
 
 
     return (
-        <div>
-            <select value={searchFilter} onChange={selectFilter}>
-                <option value="regular">Regular</option>
-                <option value="trending">Trending</option>
-                <option value="random">Random</option>
-            </select>
-            {searchFilter == "regular" && (<input id="searchBox" value={searchName} onChange={handleInputChange} />)}
-            <button onClick={fetchGifs}>Search Gifs</button>
+        <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex flex-column align-items-center bg-light p-4 rounded">
+                <select value={searchFilter} onChange={selectFilter} className="form-control mb-3" style={{ maxWidth: "300px" }}>
+                    <option value="regular">Regular</option>
+                    <option value="trending">Trending</option>
+                    <option value="random">Random</option>
+                </select>
+                {searchFilter === "regular" && (
+                    <input id="searchBox" value={searchName} onChange={handleInputChange} className="form-control mr-2" />
+                )}
+                <div className="mt-3">
+                    <button className="btn btn-primary" onClick={fetchGifs}>Search Gifs</button>
+                </div>
+            </div>
         </div>
     );
 

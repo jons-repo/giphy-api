@@ -1,6 +1,5 @@
 // Manages fetched GIFs
 import React, { useState } from "react";
-import axios from 'axios';
 import GifCard from "./GifCard";
 import SearchField from "./SearchField";
 
@@ -9,14 +8,15 @@ const AppComponent = () => {
 
     // Update gifs to fetched data
     const updateGifs = (fetchedGifs) => {
+        console.log(fetchedGifs);
         setGifs(fetchedGifs)
     };
 
     return (
         <div>
-            <h2>Results:</h2>
             <SearchField updateGifs={updateGifs} />
-            {gifs.map(gif => <GifCard key={gif.id} images={gif.images} />)}
+            {gifs.map(gif => <GifCard key={gif.id} /* Assign a unique key to each GIF card component */
+                images={gif.images}  /* Pass the 'images' property of the GIF object as a prop*/ />)}
         </div>
     );
 };
